@@ -119,7 +119,11 @@ namespace StudySound
                     {
                         voice.Speak(str);
                     }
+                    voice.Speak(delayAdderStr);
+
+
                     voice.Volume = startingVolume;
+
                 }
                
             }
