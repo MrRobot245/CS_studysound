@@ -10,3 +10,9 @@ C:\Users\andre\OneDrive\Development\studysound\StudySound\StudySound\obj\Debug\S
 C:\Users\andre\OneDrive\Development\studysound\StudySound\bin\Debug\StudySound.exe.config
 C:\Users\andre\OneDrive\Development\studysound\StudySound\obj\Debug\StudySound.exe
 C:\Users\andre\OneDrive\Development\studysound\StudySound\obj\Debug\StudySound.pdb
+C:\Users\andre\OneDrive\Development\studysound\StudySound\bin\Debug\StudySound.exe
+C:\Users\andre\OneDrive\Development\studysound\StudySound\bin\Debug\StudySound.pdb
+C:\Users\andre\OneDrive\Development\studysound\StudySound\obj\Debug\StudySound.csprojResolveAssemblyReference.cache
+C:\Users\andre\OneDrive\Development\studysound\StudySound\obj\Debug\StudySound.Form1.resources
+C:\Users\andre\OneDrive\Development\studysound\StudySound\obj\Debug\StudySound.Properties.Resources.resources
+C:\Users\andre\OneDrive\Development\studysound\StudySound\obj\Debug\StudySound.csproj.GenerateResource.Cache

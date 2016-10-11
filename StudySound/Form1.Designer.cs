@@ -36,13 +36,14 @@
             this.lblSpeechOptions = new System.Windows.Forms.Label();
             this.lblDelayMultiplier = new System.Windows.Forms.Label();
             this.lblDelayAdder = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudDelayAdder = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSetPath = new System.Windows.Forms.Button();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.txtSavePath = new System.Windows.Forms.TextBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelayMultiplier)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelayAdder)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPlay
@@ -54,6 +55,7 @@
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // txtTextToSpeech
             // 
@@ -100,7 +102,7 @@
             // 
             this.lblSpeechOptions.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSpeechOptions.AutoSize = true;
-            this.lblSpeechOptions.Location = new System.Drawing.Point(12, 131);
+            this.lblSpeechOptions.Location = new System.Drawing.Point(12, 125);
             this.lblSpeechOptions.Name = "lblSpeechOptions";
             this.lblSpeechOptions.Size = new System.Drawing.Size(86, 13);
             this.lblSpeechOptions.TabIndex = 4;
@@ -126,23 +128,18 @@
             this.lblDelayAdder.TabIndex = 6;
             this.lblDelayAdder.Text = "Delay Adder";
             // 
-            // numericUpDown1
+            // nudDelayAdder
             // 
-            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.numericUpDown1.Location = new System.Drawing.Point(259, 142);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nudDelayAdder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.nudDelayAdder.Location = new System.Drawing.Point(259, 142);
+            this.nudDelayAdder.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(40, 20);
-            this.numericUpDown1.TabIndex = 7;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudDelayAdder.Name = "nudDelayAdder";
+            this.nudDelayAdder.Size = new System.Drawing.Size(40, 20);
+            this.nudDelayAdder.TabIndex = 7;
             // 
             // label1
             // 
@@ -163,6 +160,7 @@
             this.btnSetPath.TabIndex = 9;
             this.btnSetPath.Text = "Set Path";
             this.btnSetPath.UseVisualStyleBackColor = true;
+            this.btnSetPath.Click += new System.EventHandler(this.btnSetPath_Click);
             // 
             // btnSaveFile
             // 
@@ -173,6 +171,7 @@
             this.btnSaveFile.TabIndex = 10;
             this.btnSaveFile.Text = "Save File";
             this.btnSaveFile.UseVisualStyleBackColor = true;
+            this.btnSaveFile.Click += new System.EventHandler(this.btnSaveFile_Click);
             // 
             // txtSavePath
             // 
@@ -191,7 +190,7 @@
             this.Controls.Add(this.btnSaveFile);
             this.Controls.Add(this.btnSetPath);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nudDelayAdder);
             this.Controls.Add(this.lblDelayAdder);
             this.Controls.Add(this.lblDelayMultiplier);
             this.Controls.Add(this.lblSpeechOptions);
@@ -204,7 +203,7 @@
             this.Name = "Form1";
             this.Text = "Study Sound";
             ((System.ComponentModel.ISupportInitialize)(this.nudDelayMultiplier)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelayAdder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,11 +218,12 @@
         private System.Windows.Forms.Label lblSpeechOptions;
         private System.Windows.Forms.Label lblDelayMultiplier;
         private System.Windows.Forms.Label lblDelayAdder;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudDelayAdder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSetPath;
         private System.Windows.Forms.Button btnSaveFile;
         private System.Windows.Forms.TextBox txtSavePath;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 
