@@ -16,22 +16,37 @@ namespace StudySound
         public Form1()
         {
             InitializeComponent();
-            txtSavePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\";
+            txtFilePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
             SpeechSynthesizer voice = new SpeechSynthesizer();
-            OutputSpeech(voice, txtTextToSpeech.Text, (int)nudDelayAdder.Value, (int)nudDelayMultiplier.Value);
+            OutputSpeech(voice, txtTextToSpeech.Text, (int)nudDelayAdder.Value, (int)nudDelayMultiplier.Value, (int)nudRepeat.Value);
         }
 
         private void btnSaveFile_Click(object sender, EventArgs e)
         {
             SpeechSynthesizer voice = new SpeechSynthesizer();
 
+
+           
+
             try
             {
-                voice.SetOutputToWaveFile(txtSavePath.Text);
+                string wavExtension = "";
+
+                
+                if (txtFileName.Text.Substring(txtFileName.Text.Length - 4) != ".wav")
+                {
+                    wavExtension = ".wav";
+                }
+
+
+
+                voice.SetOutputToWaveFile(txtFilePath.Text + @"\" + txtFileName.Text + wavExtension);
+                
+                
             }
             catch
             {
@@ -39,7 +54,7 @@ namespace StudySound
                 return;
             }
 
-            OutputSpeech(voice, txtTextToSpeech.Text, (int)nudDelayAdder.Value, (int)nudDelayMultiplier.Value);
+            OutputSpeech(voice, txtTextToSpeech.Text, (int)nudDelayAdder.Value, (int)nudDelayMultiplier.Value, (int)nudRepeat.Value);
         }
 
 
@@ -52,7 +67,23 @@ namespace StudySound
                 return;
             }
 
-            txtSavePath.Text = folderBrowserDialog1.SelectedPath;
+            txtFilePath.Text = folderBrowserDialog1.SelectedPath;
+        }
+
+        private void btnAddTextFile_Click(object sender, EventArgs e)
+        {
+            DialogResult r = openFileDialog1.ShowDialog();
+
+            if (r != DialogResult.OK)
+            {
+                return;
+            }
+
+            foreach(string fileName in openFileDialog1.FileNames)
+            {
+                txtTextToSpeech.Text += System.IO.File.ReadAllText(fileName) + Environment.NewLine;
+            }
+            
         }
 
 
@@ -64,7 +95,8 @@ namespace StudySound
         /// <param name="textToSpeech">The string that will be spoken by the SpeechSynthesizer.</param>
         /// <param name="delayAdder">The number of silent "a"'s the voice will say to add a delay after each ; in the textToSpeech string</param>
         /// <param name="delayMultiplier">The number of times to repeat the textToSpeech string silently (in order to add a delay), this silence is the length of time between two semi-colons multiplied by this parameter.</param>
-        private void OutputSpeech(SpeechSynthesizer voice, string textToSpeech, int delayAdder, int delayMultiplier)
+        /// <param name="repeat">The number of times to repeat each section</param>
+        private void OutputSpeech(SpeechSynthesizer voice, string textToSpeech, int delayAdder, int delayMultiplier, int repeat)
         {
             string delayAdderStr = String.Concat(Enumerable.Repeat("a ", delayAdder));
             int startingVolume = voice.Volume;
@@ -72,18 +104,30 @@ namespace StudySound
 
             foreach (string str in textToSpeech.Split(';'))
             {
-                voice.Speak(str);
 
-                voice.Volume = 0;
-                for(int i = 0; i < delayMultiplier; i++)
+                if(str == "")
+                {
+                    continue;
+                }
+
+                for(int repeatCounter = 0; repeatCounter < repeat; repeatCounter++)
                 {
                     voice.Speak(str);
+
+                    voice.Volume = 0;
+                    for (int i = 0; i < delayMultiplier; i++)
+                    {
+                        voice.Speak(str);
+                    }
+                    voice.Volume = startingVolume;
                 }
-                voice.Volume = startingVolume;
+               
             }
             
 
             voice.SetOutputToDefaultAudioDevice();
         }
+
+       
     }
 }
