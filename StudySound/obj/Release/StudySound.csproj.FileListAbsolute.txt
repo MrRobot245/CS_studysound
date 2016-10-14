@@ -1,0 +1,9 @@
+C:\Users\drew\OneDrive\Development\studysound\StudySound\bin\Release\StudySound.exe.config
+C:\Users\drew\OneDrive\Development\studysound\StudySound\bin\Release\StudySound.exe
+C:\Users\drew\OneDrive\Development\studysound\StudySound\bin\Release\StudySound.pdb
+C:\Users\drew\OneDrive\Development\studysound\StudySound\obj\Release\StudySound.csprojResolveAssemblyReference.cache
+C:\Users\drew\OneDrive\Development\studysound\StudySound\obj\Release\StudySound.Form1.resources
+C:\Users\drew\OneDrive\Development\studysound\StudySound\obj\Release\StudySound.Properties.Resources.resources
+C:\Users\drew\OneDrive\Development\studysound\StudySound\obj\Release\StudySound.csproj.GenerateResource.Cache
+C:\Users\drew\OneDrive\Development\studysound\StudySound\obj\Release\StudySound.exe
+C:\Users\drew\OneDrive\Development\studysound\StudySound\obj\Release\StudySound.pdb
