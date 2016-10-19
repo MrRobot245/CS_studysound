@@ -135,6 +135,11 @@
             this.nudDelayAdder.Name = "nudDelayAdder";
             this.nudDelayAdder.Size = new System.Drawing.Size(40, 20);
             this.nudDelayAdder.TabIndex = 7;
+            this.nudDelayAdder.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
             // 
             // lblSectionNote
             // 
@@ -174,7 +179,7 @@
             this.nudRepeat.Size = new System.Drawing.Size(40, 20);
             this.nudRepeat.TabIndex = 13;
             this.nudRepeat.Value = new decimal(new int[] {
-            1,
+            3,
             0,
             0,
             0});
