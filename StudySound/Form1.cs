@@ -16,7 +16,7 @@ namespace StudySound
         public Form1()
         {
             InitializeComponent();
-            txtFilePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -25,50 +25,24 @@ namespace StudySound
             OutputSpeech(voice, txtTextToSpeech.Text, (int)nudDelayAdder.Value, (int)nudDelayMultiplier.Value, (int)nudRepeat.Value);
         }
 
-        private void btnSaveFile_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             SpeechSynthesizer voice = new SpeechSynthesizer();
 
+            saveFileDialog1.ShowDialog();
 
-           
-
-            try
+            if(saveFileDialog1.FileName == "")
             {
-                string wavExtension = "";
-
-                
-                if (txtFileName.Text.Substring(txtFileName.Text.Length - 4) != ".wav")
-                {
-                    wavExtension = ".wav";
-                }
-
-
-
-                voice.SetOutputToWaveFile(txtFilePath.Text + @"\" + txtFileName.Text + wavExtension);
-                
-                
-            }
-            catch
-            {
-                MessageBox.Show("Invalid file name or file path");
                 return;
             }
 
+            voice.SetOutputToWaveFile(saveFileDialog1.FileName);
             OutputSpeech(voice, txtTextToSpeech.Text, (int)nudDelayAdder.Value, (int)nudDelayMultiplier.Value, (int)nudRepeat.Value);
+
+
+            saveFileDialog1.FileName = "";
         }
-
-
-        private void btnSetPath_Click(object sender, EventArgs e)
-        {
-            folderBrowserDialog1.ShowDialog();
-
-            if(folderBrowserDialog1.SelectedPath == "")
-            {
-                return;
-            }
-
-            txtFilePath.Text = folderBrowserDialog1.SelectedPath;
-        }
+        
 
         private void btnAddTextFile_Click(object sender, EventArgs e)
         {
@@ -132,6 +106,14 @@ namespace StudySound
             voice.SetOutputToDefaultAudioDevice();
         }
 
-       
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
